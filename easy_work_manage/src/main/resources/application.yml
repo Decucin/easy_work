@@ -1,0 +1,21 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: easy_work_manage
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/work_manage?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: Decucin123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 10
+      idle-timeout: 30000
+      maximum-pool-size: 20
+      max-lifetime: 120000
+      connection-timeout: 30000
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

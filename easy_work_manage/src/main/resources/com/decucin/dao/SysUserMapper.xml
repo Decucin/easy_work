@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.decucin.dao.SysUserMapper">
+    <insert id="insertAllRoles">
+        insert into
+            user_role(uid, rid)
+        values
+               <foreach collection="roles" separator="," item="role">
+                   (#{id}, #{role.id})
+               </foreach>
+
+    </insert>
+    <delete id="deleteAllRoles" parameterType="java.lang.Long">
+        delete from user_role where uid = #{id}
+    </delete>
+    <select id="selectRoles" resultType="com.decucin.entity.Role" parameterType="java.lang.Long">
+        select *
+            from role
+        where id in (
+            select rid from user_role where uid = #{id}
+            )
+    </select>
+
+
+</mapper>
