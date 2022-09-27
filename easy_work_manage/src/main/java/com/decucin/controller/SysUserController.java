@@ -30,8 +30,8 @@ public class SysUserController {
     }
 
     @PostMapping("users/save")
-    @LogAnnotation(module = "用户模块", operation = "新增用户")
-    public Result addUser(@RequestBody SysUser sysUser){
+    @LogAnnotation(module = "用户模块", operation = "保存用户")
+    public Result saveUser(@RequestBody SysUser sysUser){
         return Result.success(sysUserService.save(sysUser));
     }
 
@@ -40,12 +40,12 @@ public class SysUserController {
     public Result deleteUser(@PathVariable("id") Long id){
         return Result.success(sysUserService.removeById(id));
     }
+
     @GetMapping("roles/all")
     @LogAnnotation(module = "角色模块", operation = "查询全部角色")
     public Result allRole(){
         return Result.success(roleService.list());
     }
-
 
     @PostMapping("roles/save")
     @LogAnnotation(module = "角色模块", operation = "保存角色")

@@ -6,13 +6,7 @@ import com.decucin.vo.params.LoginParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * @author ：decucin
- * @date ：Created in 2021/10/21 23:53
- * @description：登录功能
- * @modified By：
- * @version: 1.0$
- */
+
 @RestController
 public class LoginController {
 
